@@ -5,14 +5,18 @@ import "../styles/TodoList.scss";
 const TodoList = ({ todos, onToggle, onRemove, onInsertToggle, setSelectedTodo }) => {
   return (
     <ul className="TodoList">
-      {todos.map((todo, index) => (
-        <TodoListItem todo={todo} 
+      {todos.map((todo, index) => {
+        return (
+          <TodoListItem todo={todo} 
         key={index} 
         onToggle={onToggle} 
         onRemove={onRemove}
         onInsertToggle= {onInsertToggle}
-        setSelectedTodo = {setSelectedTodo} />
-      ))}
+        setSelectedTodo = {setSelectedTodo}
+        
+        />
+        );
+        })}
     </ul>
   );
 };
