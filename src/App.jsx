@@ -66,12 +66,37 @@ function App () {
 
 
  
-  const onUpdate = (id, text) => {
-    setTodos((todos) =>
-    todos.map((todo) => (todo.id === id ? {...todo, text } : todo))
-    );
-    onInsertToggle();
+  // const onUpdate = async (id, text) => {
+    
+  //   try{
+  //     await axios.patch(`http://localhost:4000/todos/${id}`);
+  //     setTodos((todos) =>
+  //   todos.map((todo) => (todo.id === id ? {...todo, text } : todo ))
+  //   );
+  //   onInsertToggle();
+  //   } catch (e) {
+  //     setError(e);
+  //   }
+  // }
+
+
+  const onUpdate = async (id, text) => {
+    try {
+      await axios({
+        url: `http://localhost:4000/todos/${id}`,
+        method: 'PATCH',
+        data: { text},
+      })
+      setTodos(todos =>
+        todos.map(todo => (todo.id === id ? { ...todo, text } : todo))
+      )
+      onInsertToggle()
+    } catch (e) {
+      setError(e)
+    }
   }
+
+
 
   useEffect(()=> {
     const getData = async () => {
