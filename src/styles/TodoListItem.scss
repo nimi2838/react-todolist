@@ -24,10 +24,10 @@
     }
     &.checked {
       svg {
-        color: #9c88ff;
+        color: #faa4f3;
       }
       .text {
-        color: #adb5bd;
+        color: #faa4f3;
         text-decoration: line-through;
       }
     }
@@ -36,10 +36,10 @@
     display: flex;
     align-items: center;
     font-size: 1.5rem;
-    color: #e84118;
+    color: #ff20ec;
     cursor: pointer;
     &:hover {
-      color: #ff7f5f;
+      color: #ffaef8;
     }
   }
   .edit {
