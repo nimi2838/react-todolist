@@ -18,7 +18,7 @@ function App () {
   const onInsert = async (text) => {
     try {
       const data = await axios.post(`http://localhost:4000/todos`, {text});
-      setTodos((todos) => [...todos, data.data]);
+      setTodos(data.data);
 
     } catch (e) {
       setError(e);
